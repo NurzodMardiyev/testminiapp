@@ -1,35 +1,50 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
+import { useEffect } from "react";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [userId, setUserId] = useState(null);
+  const [environment, setEnvironment] = useState("");
+
+  useEffect(() => {
+    // Telegram SDK orqali user ID-ni olish
+    const initData = window.Telegram.WebApp.initDataUnsafe; // Telegram SDK
+    console.log(initData);
+    const id = initData?.user?.id;
+
+    if (id) {
+      setUserId(id);
+
+      // Toq/juft tekshirish
+      if (id % 2 === 0) {
+        setEnvironment("Juft muhit");
+      } else {
+        setEnvironment("Toq muhit");
+      }
+    }
+  }, []);
+
+  if (!userId) {
+    return <div>Loading...</div>; // User ma'lumotlari yuklanayotganida ko'rsatiladi
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
+    <div
+      style={{
+        textAlign: "center",
+        padding: "20px",
+        backgroundColor: environment === "Juft muhit" ? "#ADD8E6" : "#FFCCCB", // Ranglar
+      }}
+    >
+      <h1>Salom, {environment}!</h1>
+      <p>
+        Sizning Telegram ID: <strong>{userId}</strong>
       </p>
-    </>
-  )
+      <p>
+        Siz uchun <strong>{environment}</strong> tayyorlandi.
+      </p>
+    </div>
+  );
 }
 
-export default App
+export default App;
