@@ -32,7 +32,7 @@ export default function Country() {
       <div
         className={`${
           isDark ? "bg-gray-700 text-white" : "bg-[#f5f6f7] text-gray-800"
-        } w-full relative top-[-40px] rounded-t-3xl`}
+        } w-full relative top-[-50px] rounded-t-3xl`}
       >
         <div className="container max-w-[400px] mx-auto px-4 ">
           {filterData?.map((item) => (
@@ -59,7 +59,7 @@ export default function Country() {
                     <div
                       key={i.id}
                       className={`${
-                        isDark ? "bg-gray-800" : "bg-white"
+                        isDark ? "bg-gray-900" : "bg-white"
                       }card  px-3 py-6 rounded-2xl w-[300px]`}
                     >
                       <img
