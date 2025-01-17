@@ -1,12 +1,19 @@
-import { useEffect, useState } from "react";
-
+// import { useEffect, useState } from "react";
+import useTelegramUser from "./useTelegramUser";
+useTelegramUser;
 function App() {
-  console.log(window);
+  const user = useTelegramUser();
+
   return (
     <div>
-      <h1>Telegram Mini App</h1>
-      <p>{window.Telegram}</p>
-      <p>test</p>
+      {user ? (
+        <div>
+          <h1>Welcome, {user.first_name}!</h1>
+          <p>User ID: {user.id}</p>
+        </div>
+      ) : (
+        <p>Loading user data...</p>
+      )}
     </div>
   );
 }
