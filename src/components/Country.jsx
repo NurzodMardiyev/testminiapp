@@ -61,7 +61,7 @@ export default function Country() {
                       key={i.id}
                       className={`${
                         isDark ? "bg-gray-900" : "bg-slate-300"
-                      }card  px-3 py-6 rounded-2xl w-[300px]`}
+                      }card  px-3 py-6 rounded-2xl w-[300px] shadow-md`}
                     >
                       <img
                         src={i.src}
