@@ -15,6 +15,7 @@ function App() {
           <p>username: {user?.username}</p>
           <p>lang: {user?.language_code}</p>
           <p>premium: {user?.is_premium}</p>
+          <img src={user?.photo_url} alt="img" />
 
           {/*  <p>photo_url: {user?.photo_url}</p> */}
 
