@@ -4,6 +4,7 @@ import { useContext, useState } from "react";
 import { FaStar } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa6";
 import { contextCountry } from "../context/ContextApi";
+import { FaAngleLeft } from "react-icons/fa6";
 
 export default function Country() {
   const { id } = useParams();
@@ -15,12 +16,19 @@ export default function Country() {
   console.log(filterData);
 
   return (
-    <div className="">
+    <div>
       <img
         src={filterData[0].src}
         alt=""
         className="w-full h-[300px] object-cover"
       />
+      <div
+        className={`${
+          isDark ? "bg-black text-white" : "bg-white text-gray-800"
+        }w-[50px] h-[50px] flex items-center rounded-full justify-center`}
+      >
+        <FaAngleLeft />
+      </div>
       <div
         className={`${
           isDark ? "bg-gray-700 text-white" : "bg-[#f5f6f7] text-gray-800"
@@ -46,11 +54,13 @@ export default function Country() {
                 <h3 className="text-[18px] font-semibold">
                   {item.designation}
                 </h3>
-                <div className="flex overflow-x-scroll gap-4 scrollbar-hide w-full">
+                <div className="flex overflow-x-scroll gap-4 scrollbar-hide w-full py-5">
                   {item.cities.map((i) => (
                     <div
                       key={i.id}
-                      className="card bg-white px-3 py-6 rounded-2xl w-[300px]"
+                      className={`${
+                        isDark ? "bg-gray-800" : "bg-white"
+                      }card  px-3 py-6 rounded-2xl w-[300px]`}
                     >
                       <img
                         src={i.src}
@@ -59,7 +69,7 @@ export default function Country() {
                       />
                       <div className="flex items-end justify-between">
                         <div>
-                          <h4 className="text-[16px] font-semibold">
+                          <h4 className="text-[16px] font-semibold mb-2">
                             {i.name}
                           </h4>
                           <p>{i.desc}</p>
@@ -75,52 +85,6 @@ export default function Country() {
                       </div>
                     </div>
                   ))}
-                  <div className="card bg-white px-3 py-6 rounded-2xl w-[300px]">
-                    <img
-                      src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=3560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                      alt=""
-                      className="w-full h-[200px] object-cover"
-                    />
-                    <div className="flex items-end justify-between">
-                      <div>
-                        <h4 className="text-[16px] font-semibold">
-                          Iconic Brazil
-                        </h4>
-                        <p>Lorem, ipsum dolor.</p>
-                        <div className="flex items-center">
-                          <FaRegStar />
-                          <p className="font-semibold">4.8</p>
-                          <p className="ms-2">56k review</p>
-                        </div>
-                      </div>
-                      <div className="rounded-full bg-black text-white p-4">
-                        <FaArrowRight />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="card bg-white px-3 py-6 rounded-2xl w-[300px]">
-                    <img
-                      src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=3560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                      alt=""
-                      className="w-full h-[200px] object-cover"
-                    />
-                    <div className="flex items-end justify-between">
-                      <div>
-                        <h4 className="text-[16px] font-semibold">
-                          Iconic Brazil
-                        </h4>
-                        <p>Lorem, ipsum dolor.</p>
-                        <div className="flex items-center">
-                          <FaRegStar />
-                          <p className="font-semibold">4.8</p>
-                          <p className="ms-2">56k review</p>
-                        </div>
-                      </div>
-                      <div className="rounded-full bg-black text-white p-4">
-                        <FaArrowRight />
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>

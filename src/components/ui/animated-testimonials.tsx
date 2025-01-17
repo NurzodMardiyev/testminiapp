@@ -38,6 +38,8 @@ export const AnimatedTestimonials = ({ autoplay = false }) => {
     return Math.floor(Math.random() * 21) - 10;
   };
 
+  const { isDark } = useContext(contextCountry);
+
   return (
     <div className="max-w-sm md:max-w-4xl mx-auto antialiased font-sans px-4 md:px-8 lg:px-12 py-10">
       <div className="relative grid grid-cols-1 md:grid-cols-2  gap-20">
@@ -109,7 +111,11 @@ export const AnimatedTestimonials = ({ autoplay = false }) => {
               ease: "easeInOut",
             }}
           >
-            <h3 className="text-2xl font-bold dark:text-black text-black">
+            <h3
+              className={`${
+                isDark ? "text-white" : "text-gray-900"
+              }text-2xl font-bold`}
+            >
               {testimonials[active]?.name}
             </h3>
             <p className="text-sm text-gray-500 dark:text-neutral-500">
@@ -144,14 +150,14 @@ export const AnimatedTestimonials = ({ autoplay = false }) => {
           <div className="flex gap-4 pt-12 md:pt-0">
             <button
               onClick={handlePrev}
-              className="h-10 w-10 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center group/button"
+              className="h-10 w-10 rounded-full bg-gray-100 dark:bg-gray-900 flex items-center justify-center group/button"
             >
               <FaArrowLeft className="text-white" />
               {/* <IconArrowLeft className="h-5 w-5 text-black dark:text-neutral-400 group-hover/button:rotate-12 transition-transform duration-300" /> */}
             </button>
             <button
               onClick={handleNext}
-              className="h-10 w-10 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center group/button"
+              className="h-10 w-10 rounded-full bg-gray-100 dark:bg-gray-900 flex items-center justify-center group/button"
             >
               <FaArrowRight className="text-white" />
               {/* <IconArrowRight className="h-5 w-5 text-black dark:text-neutral-400 group-hover/button:-rotate-12 transition-transform duration-300" /> */}
