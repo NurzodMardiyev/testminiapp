@@ -1,13 +1,10 @@
 import { FiSearch } from "react-icons/fi";
 import { AnimatedTestimonials } from "./ui/animated-testimonials";
 import useTelegramUser from "../useTelegramUser";
-import { useContext } from "react";
-import { contextCountry } from "../context/ContextApi";
-export default function Landing() {
+export default function Landing({ dark }) {
   const user = useTelegramUser();
-  const { darkMode } = useContext(contextCountry);
   return (
-    <div className={`${darkMode ? "bg-black" : "bg-[#f5f6f7]"}`}>
+    <div className={`${dark ? "bg-black" : "bg-[#f5f6f7]"}`}>
       {user ? (
         <div className="container max-w-[400px] mx-auto mt-4 px-4">
           {/* header */}
