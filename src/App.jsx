@@ -5,16 +5,19 @@ import Landing from "./components/Landing.jsx";
 useTelegramUser;
 import "./App.css";
 import Country from "./components/Country.jsx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 function App() {
   const user = useTelegramUser();
+
   const [isDark, setIsDark] = useState(false);
 
-  if (user?.id % 2 !== 0) {
-    setIsDark(true); //toqda
-  } else {
-    setIsDark(false);
-  }
+  useEffect(() => {
+    if (user?.id % 2 !== 0) {
+      setIsDark(true);
+    } else {
+      setIsDark(false);
+    }
+  }, [user]);
 
   return (
     <div>
