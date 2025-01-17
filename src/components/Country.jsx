@@ -79,7 +79,7 @@ export default function Country() {
                             <p className="ms-2">56k review</p>
                           </div>
                         </div>
-                        <div className="rounded-full bg-black text-white p-4">
+                        <div className="rounded-full bg-gray-800 text-white p-4">
                           <FaArrowRight />
                         </div>
                       </div>
