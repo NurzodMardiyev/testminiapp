@@ -6,11 +6,11 @@ export const contextCountry = createContext();
 export default function ContextApiProvider({ children }) {
   const user = useTelegramUser();
   const [darkMode, setDarkMode] = useState(false);
-  if (user?.id % 2 !== 0) {
-    setDarkMode(true);
-  } else {
-    setDarkMode(false);
-  }
+  // if (user?.id % 2 !== 0) {
+  //   setDarkMode(true);
+  // } else {
+  //   setDarkMode(false);
+  // }
   const [testimonials, setTestimonials] = useState([
     {
       quote:

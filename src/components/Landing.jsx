@@ -7,7 +7,7 @@ export default function Landing() {
   const user = useTelegramUser();
   const { darkMode } = useContext(contextCountry);
   return (
-    <div className={`${darkMode && "bg-black"}`}>
+    <div className={`${darkMode ? "bg-black" : "bg-[#f5f6f7]"}`}>
       {user ? (
         <div className="container max-w-[400px] mx-auto mt-4 px-4">
           {/* header */}
@@ -29,6 +29,7 @@ export default function Landing() {
             <h2 className="text-xl font-semibold text-[#737373] mb-2">
               Search Country
             </h2>
+            <p>{darkMode}</p>
             <form action="" className="w-full ">
               <div className="relative w-full">
                 <input
