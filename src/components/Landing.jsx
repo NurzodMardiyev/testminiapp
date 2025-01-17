@@ -9,7 +9,7 @@ export default function Landing() {
         {/* header */}
         <div className="flex justify-between items-center">
           <div className="">
-            <h1 className="text-2xl font-medium">Hello, {user.first_name}</h1>
+            <h1 className="text-2xl font-medium">Hello</h1>
             <p className="text-md">username</p>
           </div>
           <div className="w-[50px] h-[50px] ">
