@@ -1,7 +1,6 @@
 import { FiSearch } from "react-icons/fi";
 import { AnimatedTestimonials } from "./ui/animated-testimonials";
-import useTelegramUser from "./useTelegramUser";
-useTelegramUser;
+import useTelegramUser from "../useTelegramUser";
 export default function Landing() {
   const user = useTelegramUser();
   return (
