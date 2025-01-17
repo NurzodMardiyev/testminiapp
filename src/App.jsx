@@ -6,7 +6,7 @@ function App() {
 
   return (
     <div>
-      <div>{user}</div>
+      {/* <div>{user}</div> */}
       {user ? (
         <div>
           <h1>Welcome, {user.first_name}!</h1>
