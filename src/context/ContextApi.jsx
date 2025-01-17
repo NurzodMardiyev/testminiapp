@@ -1,8 +1,21 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
+import useTelegramUser from "../useTelegramUser";
 
 export const contextCountry = createContext();
 
 export default function ContextApiProvider({ children }) {
+  const user = useTelegramUser();
+
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    if (user?.id % 2 !== 0) {
+      setIsDark(true);
+    } else {
+      setIsDark(false);
+    }
+  }, [user]);
+
   const [testimonials, setTestimonials] = useState([
     {
       quote:
@@ -149,6 +162,7 @@ export default function ContextApiProvider({ children }) {
     <contextCountry.Provider
       value={{
         testimonials,
+        isDark,
       }}
     >
       {children}

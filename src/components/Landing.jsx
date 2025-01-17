@@ -1,16 +1,21 @@
 import { FiSearch } from "react-icons/fi";
 import { AnimatedTestimonials } from "./ui/animated-testimonials";
 import useTelegramUser from "../useTelegramUser";
-export default function Landing({ dark }) {
+import { useContext } from "react";
+import { contextCountry } from "../context/ContextApi";
+export default function Landing() {
   const user = useTelegramUser();
+  const { isDark } = useContext(contextCountry);
   return (
-    <div className={`${dark ? "bg-black" : "bg-[#f5f6f7]"}`}>
+    <div className={`${isDark ? "bg-gray-700" : "bg-[#f5f6f7]"}`}>
       {user ? (
-        <div className="container max-w-[400px] mx-auto mt-4 px-4">
+        <div className="container max-w-[400px] mx-auto pt-4 px-4">
           {/* header */}
           <div className="flex justify-between items-center">
-            <div className="">
-              <h1 className="text-2xl font-medium">Hello, {user.first_name}</h1>
+            <div className={`${isDark ? "text-white" : "text-black"}`}>
+              <h1 className={` text-2xl font-medium`}>
+                Hello, {user.first_name}
+              </h1>
               <p className="text-md">{user.username}</p>
             </div>
             <div className="w-[50px] h-[50px] ">
@@ -30,7 +35,9 @@ export default function Landing({ dark }) {
               <div className="relative w-full">
                 <input
                   type="text"
-                  className="border-none outline-none py-5 rounded-full w-full bg-white pl-20 pr-4"
+                  className={`${
+                    isDark ? "bg-gray-900 text-white" : "bg-white text-gray-900"
+                  }border-none outline-none py-5 rounded-full w-full bg-white pl-20 pr-4`}
                 />
                 <FiSearch className="text-4xl absolute top-[14px] left-4 text-[#808080]" />
               </div>

@@ -7,12 +7,13 @@ import { contextCountry } from "../context/ContextApi";
 
 export default function Country() {
   const { id } = useParams();
-  const { testimonials } = useContext(contextCountry);
+  const { testimonials, isDark } = useContext(contextCountry);
   const [star, setStar] = useState(false);
 
   console.log(id);
   const filterData = testimonials.filter((item) => item.id === Number(id));
   console.log(filterData);
+
   return (
     <div className="">
       <img
@@ -20,7 +21,11 @@ export default function Country() {
         alt=""
         className="w-full h-[300px] object-cover"
       />
-      <div className="bg-[#f5f6f7] w-full relative top-[-40px] rounded-t-3xl">
+      <div
+        className={`${
+          isDark ? "bg-gray-700 text-white" : "bg-[#f5f6f7] text-gray-800"
+        } w-full relative top-[-40px] rounded-t-3xl`}
+      >
         <div className="container max-w-[400px] mx-auto px-4 ">
           {filterData?.map((item) => (
             <div key={item.id}>
