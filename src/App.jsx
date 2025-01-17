@@ -1,29 +1,19 @@
 // import { useEffect, useState } from "react";
+import { Route, Routes } from "react-router-dom";
 import useTelegramUser from "./useTelegramUser";
+import Landing from "./components/Landing.jsx";
 useTelegramUser;
+import "./App.css";
+import Country from "./components/Country.jsx";
 function App() {
-  const user = useTelegramUser();
+  // const user = useTelegramUser();
 
   return (
     <div>
-      {/* <div>{user}</div> */}
-      {user ? (
-        <div>
-          <h1>Welcome, {user.first_name}!</h1>
-          <p>User ID: {user.id}</p>
-          <p>lastname: {user?.last_name}</p>
-          <p>username: {user?.username}</p>
-          <p>lang: {user?.language_code}</p>
-          <p>premium: {user?.is_premium}</p>
-          <img src={user?.photo_url} alt="img" />
-
-          {/*  <p>photo_url: {user?.photo_url}</p> */}
-
-          {/* <p>{user}</p> */}
-        </div>
-      ) : (
-        <p>Loading user data...</p>
-      )}
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/country/:id" element={<Country />} />
+      </Routes>
     </div>
   );
 }
