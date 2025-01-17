@@ -11,9 +11,9 @@ function App() {
         <div>
           <h1>Welcome, {user.first_name}!</h1>
           <p>User ID: {user.id}</p>
-          {/* <p>lastname: {user?.last_name}</p>
+          <p>lastname: {user?.last_name}</p>
           <p>username: {user?.username}</p>
-          <p>lang: {user?.language_code}</p>
+          {/*  <p>lang: {user?.language_code}</p>
           <p>premium: {user?.is_premium}</p>
 
           <p>photo_url: {user?.photo_url}</p> */}
