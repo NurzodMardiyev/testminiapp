@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { FaRegStar } from "react-icons/fa";
 import { useContext, useState } from "react";
 import { FaStar } from "react-icons/fa";
@@ -22,13 +22,14 @@ export default function Country() {
         alt=""
         className="w-full h-[300px] object-cover"
       />
-      <div
+      <Link
+        to="/"
         className={`${
           isDark ? "bg-black text-white" : "bg-white text-gray-800"
         } w-[50px] h-[50px] absolute top-[30px] left-[30px] z-[999] flex items-center rounded-full justify-center`}
       >
         <FaAngleLeft />
-      </div>
+      </Link>
       <div
         className={`${
           isDark ? "bg-gray-700 text-white" : "bg-[#f5f6f7] text-gray-800"
