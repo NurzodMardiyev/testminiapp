@@ -21,7 +21,7 @@ export default function Country() {
         className="w-full h-[300px] object-cover"
       />
       <div className="bg-[#f5f6f7] w-full relative top-[-40px] rounded-t-3xl">
-        <div className="container max-w-[400px] mx-auto ">
+        <div className="container max-w-[400px] mx-auto px-4 ">
           {filterData?.map((item) => (
             <div key={item.id}>
               <div
