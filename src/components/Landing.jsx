@@ -29,7 +29,6 @@ export default function Landing() {
             <h2 className="text-xl font-semibold text-[#737373] mb-2">
               Search Country
             </h2>
-            <p>{darkMode}</p>
             <form action="" className="w-full ">
               <div className="relative w-full">
                 <input
