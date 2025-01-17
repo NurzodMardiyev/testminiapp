@@ -25,7 +25,7 @@ export default function Country() {
       <div
         className={`${
           isDark ? "bg-black text-white" : "bg-white text-gray-800"
-        }w-[50px] h-[50px] flex items-center rounded-full justify-center`}
+        }w-[50px] h-[50px] absolute top-[30px] left-[30px] z-[999] flex items-center rounded-full justify-center`}
       >
         <FaAngleLeft />
       </div>
