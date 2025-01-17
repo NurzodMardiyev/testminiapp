@@ -18,7 +18,7 @@ function App() {
 
           <p>photo_url: {user?.photo_url}</p> */}
 
-          <p>{user}</p>
+          {/* <p>{user}</p> */}
         </div>
       ) : (
         <p>Loading user data...</p>
