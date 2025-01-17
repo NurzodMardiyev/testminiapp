@@ -1,41 +1,39 @@
 import { useEffect, useState } from "react";
 
-const App = () => {
-  const [userId, setUserId] = useState(null);
-  const [environment, setEnvironment] = useState("");
+function TelegramApp() {
+  const [userData, setUserData] = useState(null);
 
   useEffect(() => {
-    if (window.Telegram && window.Telegram.WebApp) {
-      const initData = window.Telegram.WebApp.initDataUnsafe;
-      const id = initData?.user?.id;
+    // Telegram WebApp API-ni chaqirish
+    const tg = window.Telegram.WebApp;
 
-      if (id) {
-        setUserId(id);
-        setEnvironment(id % 2 === 0 ? "Juft muhit" : "Toq muhit");
-      }
-    } else {
-      console.error("Telegram WebApp SDK mavjud emas.");
+    // Foydalanuvchi ma'lumotlarini olish
+    const initDataUnsafe = tg.initDataUnsafe;
+    const user = initDataUnsafe?.user;
+
+    if (user) {
+      setUserData(user);
     }
+
+    // WebApp-ni o'rnatish
+    tg.ready();
   }, []);
 
-  if (!userId) {
-    return <div>Loading...</div>;
-  }
-
   return (
-    <div
-      style={{
-        textAlign: "center",
-        padding: "20px",
-        backgroundColor: environment === "Juft muhit" ? "#ADD8E6" : "#FFCCCB",
-      }}
-    >
-      <h1>Salom, {environment}!</h1>
-      <p>
-        Sizning Telegram ID: <strong>{userId}</strong>
-      </p>
+    <div>
+      <h1>Telegram Mini App</h1>
+      {userData ? (
+        <div>
+          <p>Foydalanuvchi ismi: {userData.first_name}</p>
+          <p>Familiyasi: {userData.last_name}</p>
+          <p>Username: @{userData.username}</p>
+          <p>ID: {userData.id}</p>
+        </div>
+      ) : (
+        <p>Foydalanuvchi malumotlarini yuklash...</p>
+      )}
     </div>
   );
-};
+}
 
-export default App;
+export default TelegramApp;
