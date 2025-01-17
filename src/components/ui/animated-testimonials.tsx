@@ -114,7 +114,7 @@ export const AnimatedTestimonials = ({ autoplay = false }) => {
             <h3
               className={`${
                 isDark ? "text-white" : "text-gray-900"
-              }text-2xl font-bold`}
+              } text-2xl font-bold`}
             >
               {testimonials[active]?.name}
             </h3>

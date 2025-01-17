@@ -37,7 +37,7 @@ export default function Landing() {
                   type="text"
                   className={`${
                     isDark ? "bg-gray-900 text-white" : "bg-white text-gray-900"
-                  }border-none outline-none py-5 rounded-full w-full bg-white pl-20 pr-4`}
+                  }border-none outline-none py-5 rounded-full w-full  pl-20 pr-4`}
                 />
                 <FiSearch className="text-4xl absolute top-[14px] left-4 text-[#808080]" />
               </div>
